@@ -1,7 +1,6 @@
 
 
 // basic math operators
-
 function addition(num1, num2) {
     return num1 + num2;
 }
@@ -38,6 +37,9 @@ function operate(operator, num1, num2) {
         return division(num1, num2);
     }
 }
+
+
+
 
 
 
