@@ -7,7 +7,8 @@ const operatorBtns = document.querySelectorAll('.operator');
 const powerButton = document.querySelector('.logo');
 const buttons = document.querySelector('.buttons');
 const calcBody = document.querySelector('.calculator');
-
+const decimalBtn = document.querySelector('.decimal');
+const negativeBtn = document.querySelector('.negative');
 
 
 
@@ -117,35 +118,47 @@ equalBtn.addEventListener('click', () => {
     }  
 });
 
+
+decimalBtn.addEventListener('click', () => {
+    let isDecimalPresent = false; 
+    let checkDecimalExist = displayValue.split('');
+    for(let i = 0; i < checkDecimalExist.length; i++) {
+        if(checkDecimalExist[i] == '.'){
+            isDecimalPresent = true;
+        }
+    }
+    if(isDecimalPresent == false) {
+        displayValue += '.';
+    }
+});
+
+negativeBtn.addEventListener('click', () => {
+    displayValue = '-';
+});
+
+
+
 // clears and reset everything
 clearBtn.addEventListener('click', ()=> {
     displayValue = "0";
     isbuttonPressed = false;
     calculatorDisplay.textContent = displayValue
     operation = {firstValue: undefined, operator: undefined, secondValue: undefined};
-})
-
-
-
-
+});
 
 
 
 // // Power Button 
-// let isPowerButtonClick = true;
-// powerButton.addEventListener('click', () => {
-//     if(isPowerButtonClick === true) {
-//         calculatorDisplay.setAttribute('style', 'background-color: #8d99ae;');
-//         buttons.setAttribute('style', 'background-color: #8d99ae;');
-//         calcBody.setAttribute('style', 'background-color: #8d99ae;');
-//         isPowerButtonClick = false;
-//     }
-//     else {
-//         calculatorDisplay.style.backgroundColor = "";
-//         buttons.style.backgroundColor = "";
-//         calcBody.style.backgroundColor = "";
-//         isPowerButtonClick = true;
-//     }
-// })
+let isPowerButtonClick = true;
+powerButton.addEventListener('click', () => {
+    if(isPowerButtonClick === true) {
+        calculatorDisplay.setAttribute('style', 'background-color: black;');
+        isPowerButtonClick = false;
+    }
+    else {
+        calculatorDisplay.style.backgroundColor = "";
+        isPowerButtonClick = true;
+    }
+})
 
 
